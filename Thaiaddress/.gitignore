@@ -1,6 +1,8 @@
 # Ignore CSV files
 *.csv
 
+!thai_address_data.csv
+
 # Ignore Jupyter Notebook files
 *.ipynb
 

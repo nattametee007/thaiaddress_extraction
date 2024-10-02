@@ -624,7 +624,7 @@ def parse(text=None, display: bool = False, tokenize_engine: str = "newmm", fiel
             
             if 'address' in fields:
                 result['address'] = {
-                    'address_details': auto_fill_add_dict,
+                    'data': auto_fill_add_dict,
                     'highlight': process_start_stop({
                         'text': text,
                         'address': ' '.join([
@@ -640,7 +640,7 @@ def parse(text=None, display: bool = False, tokenize_engine: str = "newmm", fiel
             if 'phone' in fields and clean_phonenumbers:
                 joinclean_phonenumbers =  ', '.join(clean_phonenumbers)
                 result['phone'] = {
-                    'phone_details': joinclean_phonenumbers,
+                    'data': joinclean_phonenumbers,
                     'highlight': process_start_stop({
                         'text': text,
                         'phone': joinclean_phonenumbers
@@ -649,7 +649,7 @@ def parse(text=None, display: bool = False, tokenize_engine: str = "newmm", fiel
 
             if 'email' in fields and email_addresses:
                 result['email'] = {
-                    'email_details': email_addresses,
+                    'data': email_addresses,
                     'highlight': process_start_stop({
                         'text': text,
                         'email': email_addresses
@@ -659,13 +659,13 @@ def parse(text=None, display: bool = False, tokenize_engine: str = "newmm", fiel
     elif clean_phonenumbers != '-':
         if 'phone' in fields:
             result['phone'] = {
-                'phone_details': clean_phonenumbers,
+                'data': clean_phonenumbers,
                 'highlight': process_start_stop({'text': text, 'phone': clean_phonenumbers}, phone_indics)
             }
     elif email_addresses != '-':
         if 'email' in fields:
             result['email'] = {
-                'email_details': email_addresses,
+                'data': email_addresses,
                 'highlight': process_start_stop({'text': text, 'email': email_addresses}, phone_indics)
             }
 
