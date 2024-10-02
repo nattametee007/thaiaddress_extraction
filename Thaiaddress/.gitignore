@@ -1,0 +1,7 @@
+# Ignore CSV files
+*.csv
+
+# Ignore Jupyter Notebook files
+*.ipynb
+
+*.env
